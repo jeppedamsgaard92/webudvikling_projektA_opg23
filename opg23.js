@@ -20,12 +20,17 @@ let times = [];
 
 alert('Click "GENERATE COLOUR"-button to start a new game. Then, adjust the sliders until the "distance" bar on the bottom shows 0. Your attempt is being timed.');
 
-//låser slidere
-const sliders = [sliderR, sliderG, sliderB];
+//slider array
+const sliders = [
+    { slider: sliderR, key: 'r', display: currentRValue },
+    { slider: sliderG, key: 'g', display: currentGValue },
+    { slider: sliderB, key: 'b', display: currentBValue }
+];
 
+//låser slidere
 function lockSliders(lockedStatus) { //hvis lockedStatus er true, så bliver sliderne låst. Hvis false, så er de åbne.
-    sliders.forEach((s) => {
-        s.disabled = lockedStatus;
+    sliders.forEach(({slider}) => {
+        slider.disabled = lockedStatus;
     })
 }
 
@@ -43,9 +48,9 @@ colourAutoBtn.addEventListener('click', () => {
 });
 
 //event listener på slidere (reagerer kun hvis spillet er igang)
-sliderR.addEventListener('input', () => updateColourGuess(sliderR, 'r', currentRValue));
-sliderG.addEventListener('input', () => updateColourGuess(sliderG, 'g', currentGValue));
-sliderB.addEventListener('input', () => updateColourGuess(sliderB, 'b', currentBValue));
+sliders.forEach(({ slider, key, display }) => {
+    slider.addEventListener('input', () => updateColourGuess(slider, key, display));
+});
 
 function updateColourGuess (val, key, divhtml) { 
     let numberValue = Number(val.value);
