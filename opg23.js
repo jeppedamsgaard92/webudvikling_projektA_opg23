@@ -24,9 +24,9 @@ alert('Click "GENERATE COLOUR"-button to start a new game. Then, adjust the slid
 const sliders = [sliderR, sliderG, sliderB];
 
 function lockSliders(lockedStatus) { //hvis lockedStatus er true, så bliver sliderne låst. Hvis false, så er de åbne.
-  sliders.forEach((s) => {
-    s.disabled = lockedStatus;
-  })
+    sliders.forEach((s) => {
+        s.disabled = lockedStatus;
+    })
 }
 
 lockSliders(true);   // låser alle, så man ikke kan starte spillet, før man har genereret en random farve
@@ -43,9 +43,9 @@ colourAutoBtn.addEventListener('click', () => {
 });
 
 //event listener på slidere (reagerer kun hvis spillet er igang)
-sliderR.addEventListener('input', (e) => updateColourGuess(e.target, 'r', currentRValue));
-sliderG.addEventListener('input', (e) => updateColourGuess(e.target, 'g', currentGValue));
-sliderB.addEventListener('input', (e) => updateColourGuess(e.target, 'b', currentBValue));
+sliderR.addEventListener('input', () => updateColourGuess(sliderR, 'r', currentRValue));
+sliderG.addEventListener('input', () => updateColourGuess(sliderG, 'g', currentGValue));
+sliderB.addEventListener('input', () => updateColourGuess(sliderB, 'b', currentBValue));
 
 function updateColourGuess (val, key, divhtml) { 
     let numberValue = Number(val.value);
