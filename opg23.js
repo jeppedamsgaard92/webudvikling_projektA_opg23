@@ -52,10 +52,10 @@ sliders.forEach(({ slider, key, display }) => {
     slider.addEventListener('input', () => updateColourGuess(slider, key, display));
 });
 
-function updateColourGuess (val, key, divhtml) { 
-    let numberValue = Number(val.value);
+function updateColourGuess (slider, key, display) { 
+    let numberValue = Number(slider.value);
     colour2[key] = numberValue; 
-    divhtml.textContent = numberValue;
+    display.textContent = numberValue;
     colourGuessField.style.backgroundColor = `rgb(${colour2.r}, ${colour2.g}, ${colour2.b})`;
     
     distRGB(); //regner distancen ud - hele den her function kører, når man flytter på slideren
