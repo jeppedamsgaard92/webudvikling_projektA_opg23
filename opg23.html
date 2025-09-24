@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="opg23.css">
+    <script src="opg23.js" defer></script>
+</head>
+<body>
+    <main>
+        <div id="wrapper">
+            <div class="container">
+                <h2>Click the button to generate a colour</h2>
+                <div class="colourField" id="colourAutoField"></div>
+                <button class="btn" id="colourAutoBtn">GENERATE COLOUR</button>
+            </div>
+        
+            <div class="container">
+                <h2>Adjust the R, G and B sliders to match the colour</h2>
+                
+                <div class="currentValueContainer">
+                    <label class="sliderLabel" for="sliderR">R (Red)</label>
+                    <div class="currentValue" id="currentRValue">0</div>
+                </div>
+                <input class="slider" id="sliderR" type="range" min="0" max="255" value="0">
+                
+                <div class="currentValueContainer">
+                    <label class="sliderLabel" for="sliderG">G (Green)</label>
+                    <div class="currentValue" id="currentGValue">0</div>
+                </div>
+                
+                <input class="slider" id="sliderG" type="range" min="0" max="255" value="0">
+                <div class="currentValueContainer">
+                    <label class="sliderLabel" for="sliderB">B (Blue)</label>
+                    <div class="currentValue" id="currentBValue">0</div>
+                </div>
+                <input class="slider" id="sliderB" type="range" min="0" max="255" value="0">
+                <div class="colourField" id="colourGuessField"></div>
+                <div class="distOgTimerWrapper">
+                    <div class="distOgTimerContainer">
+                        <p>Distance: </p>
+                        <div id="distanceDisplay">... Move a slider to start</div>
+                    </div>
+                    <div class="distOgTimerContainer">
+                        <p>You've spent [seconds]</p>
+                        <div id="timerDisplay">0</div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </main>
+
+</body>
+</html>
